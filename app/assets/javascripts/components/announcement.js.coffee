@@ -33,22 +33,7 @@
     console.log @state.participants
     @setState fetchedFields: true;
     
-  defaultView: ->  
-    React.DOM.tbody null,
-      React.DOM.tr null,
-        React.DOM.td null,
-          @props.announcement.title
-          React.DOM.a
-            className: 'btn btn-default'
-            onClick: @handleInfoToggle
-            'View'
-        React.DOM.td null,
-          React.DOM.a
-            href: "/users/#{@props.announcement.user_id}"
-            @props.announcement.author_name
-        React.DOM.td null, @props.announcement.participants_count
-      
-  toggledView: ->
+  render: ->
     React.DOM.tbody null,
       React.DOM.tr null,
         React.DOM.td null,
@@ -62,17 +47,12 @@
             href: "/users/#{@props.announcement.user_id}"
             @props.announcement.author_name
         React.DOM.td null, @props.announcement.participants_count
-      React.DOM.tr null,
-        React.DOM.td null,
-          @props.announcement.description   
-        React.DOM.td colSpan: 2,
-          for participant in @state.participants
-            React.DOM.a
-              href: "/users/#{participant.id}"
-              participant.name + " "
-    
-  render: ->
-    if @state.infoToggled
-      @toggledView()
-    else
-      @defaultView()
+      if @state.infoToggled
+        React.DOM.tr null,
+          React.DOM.td null,
+            @props.announcement.description   
+          React.DOM.td colSpan: 2,
+            for participant in @state.participants
+              React.DOM.a
+                href: "/users/#{participant.id}"
+                participant.name + " "
