@@ -44,7 +44,7 @@
             'View'
         React.DOM.td null, 
           React.DOM.a
-            href: "/users/#{@props.announcement.user_id}"
+            href: "/user/#{@props.announcement.user_id}"
             @props.announcement.author_name
         React.DOM.td null, @props.announcement.participants_count
       if @state.infoToggled
@@ -54,5 +54,5 @@
           React.DOM.td colSpan: 2,
             for participant in @state.participants
               React.DOM.a
-                href: "/users/#{participant.id}"
+                href: "/user/#{participant.id}"
                 participant.name + " "

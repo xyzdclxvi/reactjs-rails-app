@@ -1,0 +1,43 @@
+%h4
+  %b= user.name
+
+%p
+  %span.glyphicon.glyphicon-envelope
+  %b= user.email
+
+%p
+  = "Joined"
+  %span{"data-toggle" => "tooltip", "data-placement" => "right", :title => user.created_at.strftime("%d-%m-%y, %H:%M:%S")}
+    = "#{time_ago_in_words(user.created_at)} ago" 
+
+- if user_signed_in? && current_user == user
+  \this is you
+    
+%br
+%br    
+    
+- if announcements.count == 0
+  %h4 This user has not added any announcements yet.
+- else
+  %h4= "Announcements by #{user.name}:"
+  %br
+  - announcements.each do |announcement|
+    %p= link_to announcement.title, announcements_path
+     
+%br
+     
+- if participants.count == 0
+  %h4 This user has not responded to any announcements yet.
+- else
+  %h4= "Responses by #{user.name}:"
+  %br
+  - participants.each do |participant|
+    %p= link_to participant.announcement.title, announcements_path
+    
+%br
+%br
+    
+%h2 note    
+%p to powinno jakos linkowac do roota i rozwijac odpowiedni announcement
+%p zrobic: prop - "target":"<id>", ktory toggluje announcement o id
+%p teraz react sie nie renderuje po powrocie do roota

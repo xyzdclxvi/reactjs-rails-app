@@ -19,7 +19,7 @@ class AnnouncementsController < ApplicationController
         ",\"author_name\":\"#{announcement.user.name}\"" +
         ",\"participants_count\":\"#{announcement.participants.count}\"}"
     end
-    @announcements_data = "{\"data\":[#{@announcements_data.join(",")}]}"  
+    @announcements_data = "{\"data\":{\"announcements\":[#{@announcements_data.join(",")}],\"current_user\":#{current_user ? current_user.to_json : "null"}}}"  
   end
 
 end
