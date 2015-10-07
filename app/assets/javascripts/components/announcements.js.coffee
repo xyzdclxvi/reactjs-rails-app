@@ -37,4 +37,4 @@
             React.DOM.th null, 'Participants'
 
         for announcement in @state.announcements
-          React.createElement Announcement, key: announcement.id, announcement: announcement, handleUserProfileClick: @handleUserProfileClick
+          React.createElement Announcement, key: announcement.id, announcement: announcement, handleUserProfileClick: @handleUserProfileClick, currentUser: @state.currentUser
