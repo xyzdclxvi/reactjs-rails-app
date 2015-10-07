@@ -2,8 +2,15 @@
   getInitialState: ->
     announcements: @props.data.announcements
     currentUser: @props.data.current_user
+    user_id: 0
   getDefaultProps: ->
     announcements: []
+  
+  handleUserProfileClick: (id) ->
+    @setState user_id: id
+  handleCloseProfile: ->
+    @setState user_id: 0
+  
   render: ->
     React.DOM.div
       className: 'announcements'
@@ -19,6 +26,8 @@
       else
         React.DOM.p null,
           'not logged in'
+      if @state.user_id != 0
+        React.createElement UserProfile, key: @state.user_id, user_id: @state.user_id, handleCloseProfile: @handleCloseProfile
       React.DOM.table
         className: 'table table-bordered'
         React.DOM.thead null,
@@ -28,4 +37,4 @@
             React.DOM.th null, 'Participants'
 
         for announcement in @state.announcements
-          React.createElement Announcement, key: announcement.id, announcement: announcement
+          React.createElement Announcement, key: announcement.id, announcement: announcement, handleUserProfileClick: @handleUserProfileClick

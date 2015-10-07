@@ -15,3 +15,31 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.user-profile {
+  border: 1px dotted #bbb;
+  margin-bottom: 10px;
+
+}
+
+.thumb-small {
+  height: 40px;
+  width: 40px;
+  border: 1px dotted #bbb;
+  border-radius: 3px;
+}
+
+.border-null {
+  border: 2px solid #bbb;
+  border-radius: 4px;
+}
+
+.border-approved {
+  border: 2px solid green;
+  border-radius: 4px;
+}
+
+.border-rejected {
+  border: 2px solid green;
+  border-radius: 4px;
+}

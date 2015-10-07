@@ -10,6 +10,19 @@ class UsersController < ApplicationController
   def show
   end
   
+  def user_json
+    render json: user
+  end
+  
+  def user_announcements
+    render json: announcements
+  end
+  
+  def user_participants
+    participations = participants.map { |x| x.announcement }
+    render json: participations
+  end
+  
   private
   
   def user_params

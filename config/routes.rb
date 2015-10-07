@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   
   get 'users' => 'users#index', as: :users_index
   get 'user/:id' => 'users#show', as: :user
+  get 'user/:id/user_json' => 'users#user_json', as: :user_json
+  get 'user/:id/announcements' => 'users#user_announcements', as: :user_announcements
+  get 'user/:id/participants' => 'users#user_participants', as: :user_participants
   
   devise_for :users
   
