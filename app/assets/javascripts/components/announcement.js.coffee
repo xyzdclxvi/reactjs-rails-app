@@ -135,24 +135,24 @@
                       React.DOM.a
                         onClick: @handleUserClick.bind(this, participant.id)
                         "Profile"
-                      if @props.currentUser.id == participant.id
-                        React.DOM.li
-                          className: 'wtf'
-                          React.DOM.a
-                            onClick: @handleRemove
-                            "Remove"  
-                      React.DOM.li
-                        className: 'divider'
+                    if @props.currentUser.id == participant.id
                       React.DOM.li
                         className: 'wtf'
                         React.DOM.a
-                          onClick: @handleAccept.bind(this, participant.id)
-                          "Accept"
-                      React.DOM.li
-                        className: 'wtf'
-                        React.DOM.a
-                          onClick: @handleReject.bind(this, participant.id)
-                          "Reject"   
+                          onClick: @handleRemove
+                          "Remove"  
+                    React.DOM.li
+                      className: 'divider'
+                    React.DOM.li
+                      className: 'wtf'
+                      React.DOM.a
+                        onClick: @handleAccept.bind(this, participant.id)
+                        "Accept"
+                    React.DOM.li
+                      className: 'wtf'
+                      React.DOM.a
+                        onClick: @handleReject.bind(this, participant.id)
+                        "Reject"   
 
  
                 else

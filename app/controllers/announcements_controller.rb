@@ -4,6 +4,17 @@ class AnnouncementsController < ApplicationController
   expose(:author) { announcement.user }
   expose(:participants) { announcement.participants }
   
+  def create
+    if current_user
+      @announcement = Announcement.new(announcement_params)
+      @announcement.user = current_user
+      if @announcement.save
+        return render json: @announcement
+      end
+    end  
+    render json: @announcement.errors, status: :unprocessable_entity
+  end
+  
   def get_participants
     users = participants.map { |x| x.user.status = x.status; x.user }
     render json: users, methods: [:status]

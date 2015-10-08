@@ -10,6 +10,19 @@
     @setState user_id: id
   handleCloseProfile: ->
     @setState user_id: 0
+  handleSubmitAnnouncement: (announcement) ->
+    console.log "in announcements: submitted announcement"
+    announcements = @state.announcements.slice()
+    announcement.author_name = @state.currentUser.name
+    if @state.currentUser.image
+      announcement.author_image = @state.currentUser.image
+    else
+      announcement.author_image = ""
+    announcement.participants_count = 0
+    console.log announcement
+    console.log @state.announcements
+    announcements.push announcement
+    @setState announcements: announcements
   
   render: ->
     React.DOM.div
@@ -28,6 +41,8 @@
           'not logged in'
       if @state.user_id != 0
         React.createElement UserProfile, key: @state.user_id, user_id: @state.user_id, handleCloseProfile: @handleCloseProfile
+      if @state.currentUser
+        React.createElement AnnouncementForm, currentUser: @state.currentUser, handleSubmitAnnouncement: @handleSubmitAnnouncement
       React.DOM.table
         className: 'table table-bordered'
         React.DOM.thead null,
