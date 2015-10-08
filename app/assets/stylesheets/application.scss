@@ -38,12 +38,16 @@ a {
   border-radius: 4px;
 }
 
-.border-approved {
+.border-accepted {
   border: 2px solid green;
   border-radius: 4px;
 }
 
 .border-rejected {
-  border: 2px solid green;
+  border: 2px solid red;
   border-radius: 4px;
+}
+
+.margin-right {
+  margin-right: 10px;
 }

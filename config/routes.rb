@@ -9,6 +9,11 @@ Rails.application.routes.draw do
   get 'user/:id/announcements' => 'users#user_announcements', as: :user_announcements
   get 'user/:id/participants' => 'users#user_participants', as: :user_participants
   
+  match 'announcements/:id/add' => 'announcements#add_participant', via: :post
+  match 'announcements/:id/remove' => 'announcements#remove_participant', via: :delete
+  match 'announcements/:id/accept/:user_id' => 'announcements#accept_participant', via: :put
+  match 'announcements/:id/reject/:user_id' => 'announcements#reject_participant', via: :put
+  
   devise_for :users
   
   root to: "announcements#index"
