@@ -16,19 +16,77 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+body {
+  background-color: #f8f8ff;
+}
+
+.title {
+  padding-bottom: 20px;
+}
+
+.container-narrow {
+  padding: 0 30px;
+  margin: 0 auto;
+  max-width: 900px;
+  border-right: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+  background-color: #ffffff;
+}
+
+.popout-window {
+  display: block;
+  position: absolute;
+  width: 840px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  background-color: #ffffff;
+  opacity: 2;
+  z-index: 10;
+}
+
+.cover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 5;
+  width: 100%; 
+  height: 100%;
+  display: none;
+}
+
+.page-stretcher {
+  height: 0px;
+} 
+
 .user-profile {
   border: 1px dotted #bbb;
   margin-bottom: 10px;
 
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}
+
 a {
   cursor: pointer;
+}
+
+a.little-right-margin {
+  margin-right: 5px;
 }
 
 .thumb-small {
   height: 40px;
   width: 40px;
+  border: 1px dotted #bbb;
+  border-radius: 3px;
+}
+
+.thumb-larger {
+  height: 100px;
+  width: 100px;
   border: 1px dotted #bbb;
   border-radius: 3px;
 }

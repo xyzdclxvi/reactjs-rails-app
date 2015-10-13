@@ -10,6 +10,9 @@
   handleClose: ->
     @props.handleCloseProfile()
     
+  handleClickAnnouncement: (e) ->
+    @props.handleSearch($(e.target).text())
+    
   fetchProfileData: ->
     @fetchUser({})
     @fetchAnnouncements({})
@@ -46,17 +49,31 @@
     
   render: ->
     React.DOM.div
-      className: 'user-profile'
-      React.DOM.h4, null
+      className: 'popout-window'
+      React.DOM.img
+        className: 'thumb-larger'
+        src: if @state.user.image then @state.user.image else 'assets/placeholder-person.png'
+
+      React.DOM.h4 null,
         @state.user.name
       React.DOM.p null,
-        "email: #{@state.user.email}"
+        @state.user.email
+      React.DOM.br null
       React.DOM.p null,
+        'Announcements: '
         for announcement in @state.announcements
-          "#{announcement.title} "
+          React.DOM.a
+            className: 'little-right-margin'
+            onClick: @handleClickAnnouncement
+            announcement.title
       React.DOM.p null,
+        'Participates in: '
         for participation in @state.participations
-          "#{participation.title} "
-      React.DOM.a
+          React.DOM.a
+            className: 'little-right-margin'
+            onClick: @handleClickAnnouncement
+            participation.title
+      React.DOM.h4
+        className: 'cursor-pointer'
         onClick: @handleClose
-        'close'
+        '[close]'
