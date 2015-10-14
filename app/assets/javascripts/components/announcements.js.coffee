@@ -22,6 +22,8 @@
     else
       announcement.author_image = ""
     announcement.participants_count = 0
+    announcement.user_id = @props.data.current_user
+    announcement.id = announcements[announcements.length - 1].id + 1 #this can produce wrong id but who cares lol
     #console.log announcement
     #console.log @state.announcements
     announcements.push announcement
@@ -40,7 +42,7 @@
         className: 'title text-center'
         'Announcements'
       if @state.currentUser
-        React.createElement AnnouncementForm, currentUser: @state.currentUser, handleSubmitAnnouncement: @handleSubmitAnnouncement
+        React.createElement AnnouncementForm, currentUser: @state.currentUser, handleSubmitAnnouncement: @handleSubmitAnnouncement, handleSearch: @handleSearch
       React.createElement SearchBar, searchText: @state.searchText, handleSearch: @handleSearch
       if @state.user_id != 0
         React.createElement UserProfile, key: @state.user_id, user_id: @state.user_id, handleCloseProfile: @handleCloseProfile, handleSearch: @handleSearch

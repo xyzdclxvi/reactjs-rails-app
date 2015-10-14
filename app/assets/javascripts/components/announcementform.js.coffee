@@ -17,6 +17,9 @@
       data: { announcement: @state }
       success: =>
         @props.handleSubmitAnnouncement(@state)   
+        @handleToggleView()
+        @props.handleSearch(@state.title)
+        @setState title: '', description: ''
 
   handleChangeTitle: (e) ->
     @setState title: e.target.value
