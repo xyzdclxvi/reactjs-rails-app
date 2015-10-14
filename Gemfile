@@ -37,3 +37,5 @@ gem 'coffee-script-source', '1.8.0'
 gem 'haml-rails'
 gem 'decent_exposure'
 gem 'react-rails', '~> 1.0'
+
+ruby '2.1.5'
