@@ -22,7 +22,7 @@
     else
       announcement.author_image = ""
     announcement.participants_count = 0
-    announcement.user_id = @props.data.current_user
+    announcement.user_id = @props.data.current_user.id
     announcement.id = announcements[announcements.length - 1].id + 1 #this can produce wrong id but who cares lol
     #console.log announcement
     #console.log @state.announcements

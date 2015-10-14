@@ -48,6 +48,7 @@
               className: 'form-control'
               placeholder: 'Title'
               name: 'title'
+              autoFocus: true
               value: @state.title
               onChange: @handleChangeTitle
           React.DOM.br

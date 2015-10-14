@@ -21,5 +21,3 @@
           name: 'search'
           value: @state.searchText
           onChange: @handleChangeText
-
-        
