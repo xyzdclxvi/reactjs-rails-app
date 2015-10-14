@@ -168,7 +168,7 @@
                         React.DOM.a
                           onClick: @handleUserClick.bind(this, participant.id)
                           "Profile"
-                      if @props.currentUser.id == participant.id
+                      if @props.currentUser && @props.currentUser.id == participant.id
                         React.DOM.li
                           className: 'wtf'
                           React.DOM.a
