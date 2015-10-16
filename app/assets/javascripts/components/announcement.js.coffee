@@ -73,7 +73,7 @@
     
   searchVisible: ->
     #console.log "szukam #{@props.searchText} w #{@props.announcement.title}"
-    @props.announcement.title.indexOf(@props.searchText) >= 0
+    @props.announcement.title.toLowerCase().indexOf(@props.searchText.toLowerCase()) >= 0
     
   render: ->
     if @searchVisible()

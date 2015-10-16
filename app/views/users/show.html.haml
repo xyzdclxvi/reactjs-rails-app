@@ -22,7 +22,7 @@
   %h4= "Announcements by #{user.name}:"
   %br
   - announcements.each do |announcement|
-    %p= link_to announcement.title, announcements_path
+    %p= announcement.title
      
 %br
      
@@ -32,12 +32,5 @@
   %h4= "Responses by #{user.name}:"
   %br
   - participants.each do |participant|
-    %p= link_to participant.announcement.title, announcements_path
+    %p= participant.announcement.title
     
-%br
-%br
-    
-%h2 note    
-%p to powinno jakos linkowac do roota i rozwijac odpowiedni announcement
-%p zrobic: prop - "target":"<id>", ktory toggluje announcement o id
-%p teraz react sie nie renderuje po powrocie do roota
